@@ -132,11 +132,24 @@ body {
       height: 100%;
   }
 
+  
+  .bluesky-wrapper {
+    width: 320px; /* 350px * 0.8 */
+    height: 100%;
+}
   .twitter-tweet {
     transform-origin: top left;
     transform: scale(0.8);
     min-width: 350px;
     width: 350px !important; /* Important to override inline styles */
+  }
+
+.bluesky-embed {
+    transform: scale(0.6);  /* Scale down font size, etc. within the embed */ 
+    transform-origin: top left;
+    width: 480px !important;  /* Increase to make spacing look better */
+    min-width: 480px !important;  /* Increase to make spacing look better */
+    display: block !important;
   }
 
   @keyframes scroll {
@@ -147,4 +160,165 @@ body {
         transform: translateX(-50%);
     }
   }
+
+
+/* YouTube Stats Section */
+
+.youtube-stats-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+    
+.youtube-stats {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+
+.stat-card, .video-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.subscriber-card {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.subscriber-card .icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.subscriber-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.subscriber-card .count {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.subscriber-card span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.subscribe-btn {
+  display: inline-block;
+  background-color: #c91818;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+
+.subscribe-btn:hover {
+  background-color: #e52d27;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.video-embed .play-button {
+  width: 90px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s;
+}
+
+.video-embed:hover .play-button {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.play-button::before {
+  content: '';
+  border-style: solid;
+  border-width: 15px 0 15px 26px;
+  border-color: transparent transparent transparent white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: 3px;
+}
+
+.video-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.3;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #333;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.video-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.stat-icon {
+  width: 18px;
+  height: 18px;
+  stroke: #555;
+}
+
+@media (max-width: 768px) {
+  .youtube-stats {
+    grid-template-columns: 1fr;
+  }
+}
   
