@@ -15,7 +15,7 @@ body {
   
   header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 0px;
   }
   
   h1 {
@@ -26,6 +26,8 @@ body {
   .subheadline {
     font-size: 1.2rem;
     color: #555;
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
   
   .features, .about, .signup {
@@ -120,7 +122,6 @@ body {
     display: flex;
     gap: 2rem;
     width: max-content;
-    animation: scroll 80s linear infinite;
   }
 
   .tweet-scroller:hover .tweet-container {
@@ -130,6 +131,7 @@ body {
   .tweet-wrapper {
       width: 280px; /* 350px * 0.8 */
       height: 100%;
+       contain: layout paint;
   }
 
   
@@ -139,25 +141,37 @@ body {
 }
   .twitter-tweet {
     transform-origin: top left;
-    transform: scale(0.8);
     min-width: 350px;
     width: 350px !important; /* Important to override inline styles */
   }
 
-.bluesky-embed {
-    transform: scale(0.6);  /* Scale down font size, etc. within the embed */ 
+  .twitter-tweet-scale {
+    transform: scale(0.8);
     transform-origin: top left;
-    width: 480px !important;  /* Increase to make spacing look better */
-    min-width: 480px !important;  /* Increase to make spacing look better */
+    width: 100%;
+    height: 100%;
+  }
+
+.bluesky-embed {
+    transform-origin: top left;
+    width: 460px !important;  /* Increase to make spacing look better */
+    min-width: 460px !important;  /* Increase to make spacing look better */
     display: block !important;
+  }
+
+  .bluesky-embed-scale {
+    transform: scale(0.6);
+    transform-origin: top left;
+    width: 100%;
+    height: 100%;
   }
 
   @keyframes scroll {
     from {
-        transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     to {
-        transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 
